@@ -2,10 +2,18 @@ package com.raywenderlich.listmaker.ui.main
 
 import android.content.SharedPreferences
 import androidx.lifecycle.ViewModel
-import com.raywenderlich.listmaker.TaskList
+import com.raywenderlich.listmaker.models.TaskList
 
 class MainViewModel (private val sharedPreferences: SharedPreferences) : ViewModel() {
     lateinit var onListAdded: (() -> Unit)
+
+    lateinit var onTaskAdded: (() -> Unit)
+    lateinit var list: TaskList
+
+    fun addTask(task: String) {
+        list.tasks.add(task)
+        onTaskAdded.invoke()
+    }
 
     val lists: MutableList<TaskList> by lazy {
         retrieveLists()

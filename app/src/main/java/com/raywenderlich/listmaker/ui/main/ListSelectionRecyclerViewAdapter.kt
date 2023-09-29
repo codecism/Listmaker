@@ -2,12 +2,12 @@ package com.raywenderlich.listmaker.ui.main
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.raywenderlich.listmaker.TaskList
+import com.raywenderlich.listmaker.models.TaskList
 import com.raywenderlich.listmaker.databinding.ListSelectionViewHolderBinding
 
 class ListSelectionRecyclerViewAdapter
-    ( val lists : MutableList<TaskList>,
-      val clickListener: ListSelectionRecyclerViewClickListener) : RecyclerView.Adapter<ListSelectionViewHolder>() {
+    (val lists : MutableList<TaskList>,
+     val clickListener: ListSelectionRecyclerViewClickListener) : RecyclerView.Adapter<ListSelectionViewHolder>() {
 
     interface ListSelectionRecyclerViewClickListener {
         fun listItemClicked(list: TaskList)
